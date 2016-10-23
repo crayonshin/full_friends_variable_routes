@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Update Friend</title>
+    </head>
+    <body>
+        <form class="" action="/friends/{{recordToUpdate['id']}}" method="post">
+            <input type="text" name="first_name" value="{{recordToUpdate['first_name']}}" autofocus="">
+            <input type="text" name="last_name" value="{{recordToUpdate['last_name']}}">
+            <input type="text" name="email" value="{{recordToUpdate['email']}}">
+            <input type="hidden" name="id" value="{{recordToUpdate['id']}}">
+            <input type="submit" name="update_record" value="Update Record">
+        </form>
+    </body>
+</html>

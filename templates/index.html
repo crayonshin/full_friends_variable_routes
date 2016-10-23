@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Full Friends</title>
+    </head>
+    <body>
+        <h3>My Friends</h3>
+        <table>
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for friend in all_friends: %}
+                <tr>
+                    <td>{{ friend['first_name'] }}</td>
+                    <td>{{ friend['last_name'] }}</td>
+                    <td>{{ friend['email'] }}</td>
+                    <td>
+                        <form action='/update/{{friend['id']}}/edit' method='get'>
+                            <input type="submit" name="update" value="Update">
+                            <input type="hidden" name="id" value="{{friend['id']}}">
+                        </form>
+                        <form action='/friends/{{friend['id']}}/confirmdelete' method='get'>
+                            <input type="submit" name="{{friend['id']}}" value="Delete">
+                            <input type="hidden" name="id" value="{{friend['id']}}">
+                        </form>
+                    </td>
+                </tr>
+        </tbody>
+            {% endfor %}
+        </table>
+        <h3>Add New User</h3>
+            <form action='friends' method='POST'>
+                <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label><br><br>
+                <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label><br><br>
+                <label for="occupation">Email:<input type="text" name="email" id="email"></label><br><br>
+                <input type="submit" value="Add">
+            </form>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Delete Friend Confirmation</title>
+    </head>
+    <body>
+        <h1>ARE YOU SURE YOU WANT TO DELETE THIS USER?!</h1>
+        <form class="" action="/friends/{{idToDelete}}/delete" method="post">
+            <input type="hidden" name="id" value="{{idToDelete}}">
+            <input type="submit" name="yes" value="Yes">
+        </form><br>
+        <form class="" action="/friends/{{idToDelete}}/delete" method="post"> <!-- I have to either make this and get and get "?no=No" added to the URL or add "post" method to "/" route. What is recommended? -->
+            <input type="submit" name="no" value="No">
+        </form>
+    </body>
+</html>
